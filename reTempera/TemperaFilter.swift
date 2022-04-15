@@ -16,10 +16,9 @@ class TemperaFilter: CIFilter {
       "}")
 
   override var outputImage: CIImage! {
-    guard let image = image else { return nil }
-    return kernel!.apply(
-      extent: image.extent,
-      arguments: [image as Any, factors]
-    )!
+    if let image = image {
+      return kernel!.apply(extent: image.extent, arguments: [image, factors])
+    }
+    return nil
   }
 }
