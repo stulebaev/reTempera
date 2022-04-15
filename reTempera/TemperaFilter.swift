@@ -10,7 +10,7 @@ class TemperaFilter: CIFilter {
   var image: CIImage?
   var factors = CIVector(x: 1.0, y: 1.0, z: 1.0)
   let kernel = CIColorKernel(source:
-      "kernel float4 LevelingKernel(__sample pixel, vec3 factors) {" +
+      "kernel float4 TemperaKernel(__sample pixel, vec3 factors) {" +
       "  pixel.rgb *= factors;" +
       "  return clamp(pixel, 0., 1.);" +
       "}")
